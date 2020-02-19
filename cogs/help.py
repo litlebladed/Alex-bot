@@ -21,14 +21,6 @@ class Help(commands.Cog):
                 commands.append('%s' % (name)) 
             mod = ', '.join(commands)        
 
-            c.execute("SELECT * FROM help WHERE category = ?", ("Credits", ))
-            command = c.fetchall()
-            commands = []
-            for i in command:
-                name = i[0]
-                commands.append('%s' % (name)) 
-            creds = ', '.join(commands)
-
             c.execute("SELECT * FROM help WHERE category = ?", ("Tickets", ))
             command = c.fetchall()
             commands = []
@@ -51,7 +43,6 @@ class Help(commands.Cog):
                 commands.append('%s' % (name)) 
             other = ', '.join(commands)
             em.add_field(name="**Moderation commands**", value=mod, inline=False)
-            em.add_field(name="**Credits commands**", value=creds, inline=False)
             em.add_field(name="**Tickets commands**", value=tickets, inline=False)
             em.add_field(name="**Owner commands**", value=owner, inline=False)
             em.add_field(name="**Other commands**", value=other, inline=False)
