@@ -1,0 +1,2 @@
+python "LittleBot.py"
+pause
